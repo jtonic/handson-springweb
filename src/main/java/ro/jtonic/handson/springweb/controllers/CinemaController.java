@@ -11,11 +11,16 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class CinemaController {
 
-    @RequestMapping(value = "hello", method = RequestMethod.GET)
+    @RequestMapping(value = "/greeting", method = RequestMethod.GET)
     public ModelAndView greeting() {
         ModelAndView mav = new ModelAndView("HelloWorldPage");
         mav.addObject("msg", "Hello spring web mvc world!!!!");
         return mav;
+    }
+
+    @RequestMapping(value = "/hello", method = RequestMethod.GET)
+    public String hello() {
+        return "hello";
     }
 
 }

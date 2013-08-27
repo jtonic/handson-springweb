@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import ro.jtonic.handson.springweb.controllers.CinemaController;
 
 /**
  * Created by jtonic on 8/25/13.
@@ -18,6 +19,11 @@ public class CinemaConfig {
         viewResolver.setPrefix("/WEB-INF/pages/");
         viewResolver.setSuffix(".jsp");
         return viewResolver;
+    }
+
+    @Bean
+    public CinemaController cinemaController() {
+        return new CinemaController();
     }
 
 }
