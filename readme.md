@@ -10,6 +10,9 @@ Note:
     1. And created a superb maven archetype for spring mvc/servlet3/tomcat7/spring-data/spring-security:
         https://github.com/kolorobot/spring-mvc-quickstart-archetype
 
+1. Simple ModelAttribute examples article:
+    http://thespringthing.blogspot.ro/2010/11/how-does-modelattribute-work.html
+
 The intention of the project is to learn:
 
 1. Servlet 3  (xml free)
