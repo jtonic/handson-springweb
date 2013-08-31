@@ -13,13 +13,15 @@ import java.util.Set;
  * Created by jtonic on 8/25/13.
  */
 public class CinemaServletContainerInitializer implements ServletContainerInitializer {
-/*    @Override
+    @Override
     public void onStartup(Set<Class<?>> c, ServletContext ctx) throws ServletException {
-        final ServletRegistration.Dynamic registration = ctx.addServlet("hello", MyServlet.class);
+        MyServlet servlet = new MyServlet();
+        final ServletRegistration.Dynamic registration = ctx.addServlet("hello", servlet);
+//        final ServletRegistration.Dynamic registration = ctx.addServlet("hello", MyServlet.class);
         registration.setLoadOnStartup(1);
         registration.addMapping("/hello");
-    }*/
-    @Override
+    }
+/*    @Override
     public void onStartup(Set<Class<?>> c, ServletContext ctx) throws ServletException {
         final AnnotationConfigWebApplicationContext webApplicationContext = new AnnotationConfigWebApplicationContext();
         webApplicationContext.register(CinemaConfig.class);
@@ -29,4 +31,5 @@ public class CinemaServletContainerInitializer implements ServletContainerInitia
         registration.setLoadOnStartup(1);
         registration.addMapping("/");
     }
+    */
 }
