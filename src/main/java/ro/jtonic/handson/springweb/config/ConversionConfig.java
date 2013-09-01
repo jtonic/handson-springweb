@@ -7,6 +7,8 @@ import org.springframework.context.support.ConversionServiceFactoryBean;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.core.convert.converter.ConverterRegistry;
 import org.springframework.core.convert.support.ConversionServiceFactory;
+import org.springframework.format.support.FormattingConversionService;
+import org.springframework.format.support.FormattingConversionServiceFactoryBean;
 import ro.jtonic.handson.springweb.conversion.String2TeacherConverter;
 
 /**
@@ -27,6 +29,17 @@ public class ConversionConfig {
     @Bean
     protected ConversionServiceFactoryBean conversionServiceFactoryBean() {
         return new ConversionServiceFactoryBean();
+    }
+
+    @Bean
+    protected FormattingConversionServiceFactoryBean formattingConversionServiceFactoryBean() {
+        return new FormattingConversionServiceFactoryBean();
+    }
+
+    @Bean
+    public FormattingConversionService formattingConversionService() {
+        final FormattingConversionService formattingConversionService = formattingConversionServiceFactoryBean().getObject();
+        return formattingConversionService;
     }
 
 }
