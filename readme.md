@@ -33,6 +33,8 @@ How to test application:
 
 1. [V] Conversions with ConvertersRegistry, ConversionService and Converter. This is the spring recommended way of conversion.
    Property editors are obsolete. Use them no more.
+1. Validation support with Spring validation and JSR 303 validation. Example with a form page.
+1. Internationalization example
 1. [>] Add formatting support
 1. POST with data binding and spring form taglib
 
