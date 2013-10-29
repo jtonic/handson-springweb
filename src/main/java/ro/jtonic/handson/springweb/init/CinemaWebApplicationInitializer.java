@@ -13,7 +13,7 @@ import java.util.Set;
 /**
  * Created by jtonic on 8/31/13.
  */
-public class CinemaWebApplicationInitializer implements WebApplicationInitializer{
+public class CinemaWebApplicationInitializer implements WebApplicationInitializer {
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
         AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();

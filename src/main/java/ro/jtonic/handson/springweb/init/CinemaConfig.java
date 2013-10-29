@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import ro.jtonic.handson.springweb.config.ConversionConfig;
 import ro.jtonic.handson.springweb.controllers.CinemaController;
 import ro.jtonic.handson.springweb.support.WebMvcContextConfigurationSupport;
 
@@ -12,7 +13,7 @@ import ro.jtonic.handson.springweb.support.WebMvcContextConfigurationSupport;
  * Created by jtonic on 8/25/13.
  */
 @Configuration
-@Import({WebMvcContextConfigurationSupport.class, ServicesConfig.class})
+@Import({WebMvcContextConfigurationSupport.class, ServicesConfig.class, ConversionConfig.class})
 @EnableWebMvc
 public class CinemaConfig {
 

@@ -41,7 +41,7 @@ public class ConversionTest extends AbstractTestNGSpringContextTests {
         assertThat(teacher.getName()).isEqualTo(teacherName);
     }
 
-    @Test
+    @Test(enabled = false)
     public void testDateFormat() {
         String dateStr =  "1970-01-29";
         final Date date = formattingConversionService.convert(dateStr, Date.class);
