@@ -11,7 +11,7 @@ import java.io.PrintWriter;
 /**
  * Created by jtonic on 8/25/13.
  */
-@WebServlet(name = "myServlet", urlPatterns = "/helloServlet", asyncSupported = false, loadOnStartup = 1)
+@WebServlet(name = "myServlet", urlPatterns = "/helloServlet", asyncSupported = true, loadOnStartup = 1)
 public class MyServlet extends HttpServlet {
 
     @Override
