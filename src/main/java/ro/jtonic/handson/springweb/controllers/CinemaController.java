@@ -29,12 +29,6 @@ public class CinemaController {
     public BookSearchCriteria bookSearchCriteria() {
         return criteriaService.createBookSearchCriteria();
     }
-/*
-    @ModelAttribute("bookSearchCriteria")
-    public BookSearchCriteria bookSearchCriteria() {
-        return new BookSearchCriteria("title 1");
-    }
-*/
 
     @RequestMapping(value = "/greeting", method = RequestMethod.GET)
     public ModelAndView greeting() {

@@ -3,6 +3,7 @@ package ro.jtonic.handson.springweb.init;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
+import org.springframework.web.filter.DelegatingFilterProxy;
 import org.springframework.web.servlet.DispatcherServlet;
 
 import javax.servlet.ServletContext;
@@ -16,13 +17,24 @@ import java.util.Set;
 public class CinemaWebApplicationInitializer implements WebApplicationInitializer {
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
+
+        addListeners(servletContext);
+
+//        addFilters(servletContext);
+
+        addServlets(servletContext);
+
+    }
+
+    private void addListeners(ServletContext servletContext) {
         AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
-//        context.setConfigLocation("ro.jtonic.handson.springweb");
         context.register(CinemaConfig.class);
 
         servletContext.addListener(new ContextLoaderListener(context));
         servletContext.setInitParameter("defaultHtmlEscape", "true");
+    }
 
+    private void addServlets(ServletContext servletContext) {
         DispatcherServlet servlet = new DispatcherServlet();
         // no explicit configuration reference here: everything is configured in the root container for simplicity
         servlet.setContextConfigLocation("");
@@ -35,5 +47,9 @@ public class CinemaWebApplicationInitializer implements WebApplicationInitialize
         if (!mappingConflicts.isEmpty()) {
             throw new IllegalStateException("'dispatcher' cannot be mapped to '/' under Tomcat versions <= 7.0.14");
         }
+    }
+
+    private void addFilters(ServletContext servletContext) {
+        servletContext.addFilter("springSecurityFilterChain", DelegatingFilterProxy.class);
     }
 }
