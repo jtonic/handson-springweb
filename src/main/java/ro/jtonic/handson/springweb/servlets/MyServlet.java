@@ -1,4 +1,4 @@
-package ro.jtonic.handson.springweb.init;
+package ro.jtonic.handson.springweb.servlets;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,7 +18,7 @@ public class MyServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/plain");
         final PrintWriter writer = resp.getWriter();
-        writer.append("Hello world!!!");
+        writer.append("Hello world again!!!");
         writer.flush();
     }
 }
