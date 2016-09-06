@@ -37,6 +37,10 @@ How to test application:
 1. Internationalization example
 1. [>] Add formatting support
 1. POST with data binding and spring form taglib
+1. setup the spring data
+1. simple spring data example.
+1. spring data used through services in mvc controllers.
+
 
 <em>Issues:</em>
 
