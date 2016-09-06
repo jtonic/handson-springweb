@@ -2,15 +2,13 @@ package ro.jtonic.handson.springweb.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import ro.jtonic.handson.springweb.model.BookSearchCriteria;
 import ro.jtonic.handson.springweb.services.BookSearchCriteriaService;
+import ro.jtonic.handson.springweb.services.CustomerService;
 
 /**
  * Created by jtonic on 8/25/13.
@@ -20,9 +18,15 @@ public class CinemaController {
 
     private BookSearchCriteriaService criteriaService;
 
+    private CustomerService customerService;
+
     @Autowired
-    public void config(@Qualifier("criteriaService") BookSearchCriteriaService criteriaService) {
+    public void config(
+            @Qualifier("criteriaService") BookSearchCriteriaService criteriaService
+            , CustomerService customerService
+    ) {
         this.criteriaService = criteriaService;
+        this.customerService = customerService;
     }
 
     @ModelAttribute("bookSearchCriteria")
@@ -47,6 +51,15 @@ public class CinemaController {
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public String hello() {
         return "hello";
+    }
+
+    @RequestMapping(value = "/customerid", method = RequestMethod.GET, produces = {MediaType.TEXT_PLAIN_VALUE})
+    public @ResponseBody String getCustomerIdByName(@RequestParam(value = "name", required = true) String name) {
+        final Long customerId = customerService.getCustomerId(name);
+        if(customerId != -1L) {
+            return customerId.toString();
+        }
+        return "No customer found for the provided name";
     }
 
 }

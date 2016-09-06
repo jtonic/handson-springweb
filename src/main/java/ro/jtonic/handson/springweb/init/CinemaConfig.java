@@ -1,9 +1,6 @@
 package ro.jtonic.handson.springweb.init;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
-import org.springframework.context.annotation.ImportResource;
+import org.springframework.context.annotation.*;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import ro.jtonic.handson.springweb.config.ConversionConfig;
@@ -14,8 +11,9 @@ import ro.jtonic.handson.springweb.support.WebMvcContextConfigurationSupport;
  * Created by jtonic on 8/25/13.
  */
 @Configuration
-@Import({WebMvcContextConfigurationSupport.class, ServicesConfig.class, ConversionConfig.class})
+@Import({WebMvcContextConfigurationSupport.class, ServicesConfig.class, ConversionConfig.class, JpaDataConfiguration.class})
 //@ImportResource("classpath:META-INF/applicationContext-security.xml")
+@ComponentScan(basePackages = {"ro.jtonic.handson.springweb"})
 @EnableWebMvc
 public class CinemaConfig {
 

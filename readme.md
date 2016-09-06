@@ -37,10 +37,26 @@ How to test application:
 1. Internationalization example
 1. [>] Add formatting support
 1. POST with data binding and spring form taglib
-1. setup the spring data
-1. simple spring data example.
-1. spring data used through services in mvc controllers.
+1. [V] setup the spring JPA data 
+1. [V] simple spring data example.
+1. [V] spring data used through services in mvc controllers.
+1. return a json in the response body
+1. binding from JPA entities to beans. 1. using dozer or 2. spring support
+1. try to integrate spring boot in the application. It looks like a good dependencies manager and bootstrap-er 
 
+
+Take aways:
+1. Return a different content type in controllers - the @ResponseBody is required.
+Example
+    
+    @RequestMapping(value = "/customerid", method = RequestMethod.GET, produces = {MediaType.TEXT_PLAIN_VALUE})
+    public @ResponseBody String getCustomerIdByName(@RequestParam(value = "name", required = true) String name) {
+        final Long customerId = customerService.getCustomerId(name);
+        if(customerId != -1L) {
+            return customerId.toString();
+        }
+        return "No customer found for the provided name";
+    }
 
 <em>Issues:</em>
 
