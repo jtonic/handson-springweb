@@ -42,6 +42,14 @@ How to test application:
 1. [V] spring data used through services in mvc controllers.
 1. return a json in the response body
 1. binding from JPA entities to beans. 1. using dozer or 2. spring support
+1. create the login page and functionality
+1. use https (configure Tomcat for https)
+1. configure Spring Security to prevent unauthenticated call to protected resources.
+
+Advanced:
+1. use twitter bootstrap
+1. use AngularJS 2
+1.
 1. try to integrate spring boot in the application. It looks like a good dependencies manager and bootstrap-er 
 
 
